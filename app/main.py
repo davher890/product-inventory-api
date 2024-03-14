@@ -1,9 +1,12 @@
+from dotenv import load_dotenv
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from services.product import get_products, get_brands, get_categories
 from database import Base, engine, SessionLocal
+from services.product import get_products, get_brands, get_categories
+
+load_dotenv()
 
 Base.metadata.create_all(bind=engine)
 
